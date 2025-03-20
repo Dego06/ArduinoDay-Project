@@ -5,7 +5,7 @@
 SoftwareSerial sim800(10, 11); // RX, TX (ajusta según tu conexión)
 MPU6050 mpu;
 
-String telefono = "+521234567890"; // 📞 Reemplaza con tu número de teléfono
+String telefono = "+50585424403"; // 📞 Reemplaza con tu número de teléfono
 bool giroscopioEncendido = true;  // Estado del giroscopio
 
 void setup() {
@@ -29,7 +29,7 @@ void loop() {
         mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 
         // Detecta movimiento si hay aceleración alta
-        if (abs(ax) > 1000 || abs(ay) > 1000 || abs(az) > 1000) {
+        if (abs(ax) > 500 || abs(ay) > 500 || abs(az) > 500) {
             Serial.println("¡Movimiento detectado!");
             obtenerYEnviarUbicacion();
             delay(5000);  // Evita múltiples activaciones en poco tiempo
